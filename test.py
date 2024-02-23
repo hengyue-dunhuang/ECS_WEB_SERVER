@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 from io import BytesIO
 import base64
-matplotlib.use('TkAgg')  # or another compatible backend
+# matplotlib.use('TkAgg')  # or another compatible backend
 
 @app.route('/')
 def index():
@@ -24,7 +24,7 @@ def index():
     for ax in axes:
         time_point = len(time)
         if time_point <=120:
-            interval_minutes = int(time_point/20)
+            interval_minutes = int(time_point/5)
             ax.xaxis.set_major_locator(mdates.MinuteLocator(interval=interval_minutes))
         else:
             interval_hour = int(time_point/120)
